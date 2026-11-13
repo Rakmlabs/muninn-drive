@@ -1,0 +1,4 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<application android:label="CoralNut UI test driver" />
+<instrumentation android:name="io.coralnut.pleosprobe.UiInputInstrumentation" android:targetPackage="io.coralnut.pleosuidriver" />
+</manifest>

@@ -1,0 +1,27 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="pleos.car.permission.NAVI_ROUTE" />
+    <uses-permission android:name="pleos.car.permission.NAVI_ROUTE_SEARCH" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
+    <uses-permission android:name="pleos.car.permission.TTS_SERVICE" />
+    <uses-permission android:name="pleos.car.permission.STT_SERVICE" />
+    <queries><package android:name="ai.umos.maps.android.navigation.app" /></queries>
+    <application android:icon="@mipmap/ic_launcher" android:roundIcon="@mipmap/ic_launcher" android:networkSecurityConfig="@xml/network_security_config" android:label="Muninn Drive" android:theme="@android:style/Theme.Material.Light.NoActionBar" android:allowBackup="false">
+        <uses-library android:name="android.car" android:required="false" />
+        <activity android:name=".PlaceVideoActivity" android:exported="false" android:configChanges="orientation|screenSize|smallestScreenSize|screenLayout|uiMode" />
+        <service android:name=".DestinationMonitorService" android:exported="false" android:foregroundServiceType="specialUse">
+            <property android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE" android:value="User-started emulator diagnostic session monitoring navigation destination changes for contextual place recommendations; stops after ten minutes or explicit stop." />
+        </service>
+        <activity android:name=".DiagnosticsActivity" android:exported="false" />
+        <activity android:name=".MainActivity" android:configChanges="orientation|screenSize|smallestScreenSize|screenLayout|uiMode" android:exported="true" android:launchMode="singleTop">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>
